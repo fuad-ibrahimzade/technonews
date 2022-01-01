@@ -230,7 +230,7 @@ namespace TechnologyNews.Controllers
             return Ok(new { jwt = new { message = "Posts listed", posts } });
         }
         [HttpGet("api/list-featured-posts")]
-        public async Task<IActionResult> ListFeaturedPostsAsync()
+        public IActionResult ListFeaturedPostsAsync()
         {
             var posts = unitOfWork.PostRepository.GetRandomLimit(2);
             var data = new { message = "Featured Posts listed", posts };

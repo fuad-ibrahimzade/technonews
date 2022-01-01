@@ -1,23 +1,18 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace TechnologyNews.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialSQLServerExpress : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.EnsureSchema(
-                name: "public");
-
             migrationBuilder.CreateTable(
                 name: "About",
-                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     content = table.Column<string>(nullable: true),
                     date_upd = table.Column<DateTime>(nullable: false),
                     date_add = table.Column<DateTime>(nullable: false)
@@ -29,11 +24,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Advertisement",
-                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     date_upd = table.Column<DateTime>(nullable: false),
                     date_add = table.Column<DateTime>(nullable: false),
                     ads_name_1 = table.Column<string>(nullable: true),
@@ -48,7 +42,6 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
-                schema: "public",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -63,7 +56,6 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
-                schema: "public",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -92,11 +84,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Comment",
-                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     date_add = table.Column<DateTime>(nullable: false),
                     date_upd = table.Column<DateTime>(nullable: false),
                     name = table.Column<string>(nullable: true),
@@ -113,11 +104,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Contact",
-                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     content = table.Column<string>(nullable: true),
                     date_upd = table.Column<DateTime>(nullable: false),
                     date_add = table.Column<DateTime>(nullable: false)
@@ -129,11 +119,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "CustomAnalytics",
-                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     date_upd = table.Column<DateTime>(nullable: false),
                     date_add = table.Column<DateTime>(nullable: false),
                     analytics_type = table.Column<string>(nullable: true),
@@ -146,11 +135,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Page",
-                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     date_upd = table.Column<DateTime>(nullable: false),
                     date_add = table.Column<DateTime>(nullable: false),
                     posts_count = table.Column<int>(nullable: false),
@@ -166,11 +154,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Post",
-                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     date_add = table.Column<DateTime>(nullable: false),
                     date_upd = table.Column<DateTime>(nullable: false),
                     post_category = table.Column<string>(nullable: true),
@@ -191,11 +178,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "SocialLinks",
-                schema: "public",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     date_upd = table.Column<DateTime>(nullable: false),
                     date_add = table.Column<DateTime>(nullable: false),
                     link_type = table.Column<string>(nullable: true),
@@ -208,11 +194,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
-                schema: "public",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -223,7 +208,6 @@ namespace TechnologyNews.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalSchema: "public",
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -231,11 +215,10 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
-                schema: "public",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -246,7 +229,6 @@ namespace TechnologyNews.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "public",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -254,7 +236,6 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserLogins",
-                schema: "public",
                 columns: table => new
                 {
                     LoginProvider = table.Column<string>(nullable: false),
@@ -268,7 +249,6 @@ namespace TechnologyNews.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "public",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -276,7 +256,6 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserRoles",
-                schema: "public",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
@@ -288,14 +267,12 @@ namespace TechnologyNews.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalSchema: "public",
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "public",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -303,7 +280,6 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserTokens",
-                schema: "public",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
@@ -317,7 +293,6 @@ namespace TechnologyNews.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "public",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -325,110 +300,90 @@ namespace TechnologyNews.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
-                schema: "public",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                schema: "public",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
-                schema: "public",
                 table: "AspNetUserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserLogins_UserId",
-                schema: "public",
                 table: "AspNetUserLogins",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_RoleId",
-                schema: "public",
                 table: "AspNetUserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                schema: "public",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                schema: "public",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "About",
-                schema: "public");
+                name: "About");
 
             migrationBuilder.DropTable(
-                name: "Advertisement",
-                schema: "public");
+                name: "Advertisement");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoleClaims",
-                schema: "public");
+                name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
-                name: "AspNetUserClaims",
-                schema: "public");
+                name: "AspNetUserClaims");
 
             migrationBuilder.DropTable(
-                name: "AspNetUserLogins",
-                schema: "public");
+                name: "AspNetUserLogins");
 
             migrationBuilder.DropTable(
-                name: "AspNetUserRoles",
-                schema: "public");
+                name: "AspNetUserRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUserTokens",
-                schema: "public");
+                name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Comment",
-                schema: "public");
+                name: "Comment");
 
             migrationBuilder.DropTable(
-                name: "Contact",
-                schema: "public");
+                name: "Contact");
 
             migrationBuilder.DropTable(
-                name: "CustomAnalytics",
-                schema: "public");
+                name: "CustomAnalytics");
 
             migrationBuilder.DropTable(
-                name: "Page",
-                schema: "public");
+                name: "Page");
 
             migrationBuilder.DropTable(
-                name: "Post",
-                schema: "public");
+                name: "Post");
 
             migrationBuilder.DropTable(
-                name: "SocialLinks",
-                schema: "public");
+                name: "SocialLinks");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles",
-                schema: "public");
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers",
-                schema: "public");
+                name: "AspNetUsers");
         }
     }
 }
